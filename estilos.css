@@ -22,4 +22,5 @@ html, body{
 }
 #disparo{
     position: absolute;
+    opacity: 0;
 }

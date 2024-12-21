@@ -1,4 +1,4 @@
-let shante = document.getElementById("shante")
+let shante = document.getElementById('shante')
 let animacion = setInterval(cambiar_imagen,50)
 let num_imagen = 0
 let x = 0
@@ -6,6 +6,13 @@ let y = 0
 // pantalla
 let ancho = screen.width
 let alto = screen.height
+
+let disparo = document.getElementById('disparo')
+let disparo_x = 0
+let disparo_y = 0
+let num_disparo = 0
+let animacion_disparo
+let velocidad = 200
 
 function cambiar_imagen(){
     num_imagen = num_imagen + 1
@@ -18,6 +25,7 @@ function cambiar_imagen(){
 }
 
 document.addEventListener("keydown", mover)
+
 function mover(event){
     // ancho = screen.width
     // alto = screen.height
@@ -48,8 +56,44 @@ function mover(event){
     // console.log(ancho + ' x ' + alto)
     // console.log('x:' + x)
     // console.log('y:' + y)
+
+    // disparo
+    if(event.keyCode == 69){
+      disparo_x = 0
+      clearInterval(animacion_disparo)
+        disparo_x = x + (152/2)
+        disparo_y = y + (194/2)
+        disparo.style.opacity = 1
+        animacion_disparo = setInterval(cambiar_imagen_disparo, velocidad)
+        
+    }
+
+    disparo.style.left = disparo_x + "px"
+    disparo.style.top = disparo_y + "px"    
     
 }
 
 // console.log("Esta es una modificación")
 //shante.setAttribute("src","img/Vidas/heart_1.png");
+
+
+function cambiar_imagen_disparo(){
+  num_disparo = num_disparo + 1
+  let direc
+  if (num_disparo > 4){
+    num_disparo = 1
+  }
+  direc = "img/HannyahNED/Cohete_"+num_disparo+".png"
+  disparo.setAttribute("src",direc)
+
+  disparo_x += 50
+  // console.log(disparo_x);
+  
+  disparo.style.left = disparo_x + "px"
+  disparo.style.top = disparo_y + "px" 
+
+  if(disparo_x >= ancho){
+    clearInterval(animacion_disparo)
+  }
+  
+}
