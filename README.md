@@ -7,6 +7,8 @@
 - s -> Movimiento hacia abajo
 - a -> Movimiento hacia la izquierda
 - d -> Movimiento hacia la derecha
+### Se agregó la funcionalidad de disparar con la letra:
+- e -> Disparar
 ### Tambien se controla el tamaño de la pantalla para que no se salga el personaje.
 ## 💻Tecnologías utilizadas
 ### Para el desarrollo de este proyecto se utilizó:
