@@ -4,8 +4,8 @@ let num_imagen = 0
 let x = 0
 let y = 0
 // pantalla
-let ancho = screen.width
-let alto = screen.height
+let ancho = window.innerWidth
+let alto = window.innerHeight
 
 let disparo = document.getElementById('disparo')
 let disparo_x = 0
@@ -27,8 +27,10 @@ function cambiar_imagen(){
 document.addEventListener("keydown", mover)
 
 function mover(event){
-    // ancho = screen.width
-    // alto = screen.height
+    ancho = window.innerWidth
+    alto = window.innerHeight
+    // console.log({ancho, alto});
+    
     
     // console.log(event.keyCode)
     // mover hacia la derecha
@@ -49,6 +51,8 @@ function mover(event){
     if(event.keyCode == 83 && y <= alto - 194){
         y = y + 5
     }
+    // console.log({y});
+    
 
     shante.style.left = x + "px"
     shante.style.top = y + "px"
